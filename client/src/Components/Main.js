@@ -4,6 +4,7 @@ import RoomList from './RoomList'
 
 function Main() {
 
+  // roomName이 같을 경우 처리
   const [roomName, setRoomName] = useState("");
 
   const createRoom = () => {
@@ -15,7 +16,7 @@ function Main() {
           Axios.post('http://localhost:3001/createRoom', {
             roomname : roomName,
           }).then(response => {
-            console.log(response);
+            console.log(response.data);
           });
       }
   }

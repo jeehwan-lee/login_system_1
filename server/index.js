@@ -51,6 +51,20 @@ app.post('/register', (req, res) => {
     );
 });
 
+app.post('/roomList', (req, res) => {
+    db.query(
+        "SELECT * from rooms",
+        (err, result) => {
+            if(err) {
+                res.send({err : err});
+            } else {
+                res.send(result);
+            }
+
+            
+        }
+    )
+})
 app.post('/login', (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
