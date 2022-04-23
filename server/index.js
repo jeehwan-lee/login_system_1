@@ -22,6 +22,20 @@ const db = mysql.createConnection({
     database : "LoginSystem",
 });
 
+app.post('/createRoom', (req, res) => {
+    const roonName = req.body.roomname;
+
+    console.log(req.body.roomname);
+
+    db.query (
+        "Insert into rooms (roomname) values (?)",
+        [roonName],
+        (err, result) => {
+            console.log(err);
+        }
+    )
+});
+
 app.post('/register', (req, res) => {
 
     const username = req.body.username;
